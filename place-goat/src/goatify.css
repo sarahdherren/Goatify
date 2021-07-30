@@ -1,0 +1,48 @@
+html{
+    background-color: teal;
+    border: solid teal 7px;
+    
+}
+body {
+    height: 100%;
+    overflow: hidden;
+    border-radius: 40px;
+}
+
+h1 {
+    color: teal;
+}
+
+div.goat {
+    border: none;
+    max-width: 50%;
+    margin: 0 auto;
+}
+
+p {
+    z-index: 10;
+    text-align: center;
+    margin-top: 20px;
+    background-color: white;
+    
+}
+
+div.goatify {
+    position: fixed;
+    left: 20%;
+    top: 20%;
+    text-align: center; 
+    border: teal 1.5px solid;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: #E4FFFF;
+    box-shadow: 5px 5px 10px teal;
+}
+
+div.goatify button {
+    background-color: #80002A;
+    padding: 1rem;
+    border-radius: 15px;
+    border: 1px solid teal;
+    color: #FFE4ED;
+}

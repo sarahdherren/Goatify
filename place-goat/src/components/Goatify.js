@@ -1,16 +1,19 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux';
-import { addGoat, fetchGoats, hasFetched } from '../actions';
-
+import { addGoat, fetchGoats, displayNew } from '../actions';
 
 const Goatify = (props) => {
 
-    const { fetchGoats, addGoat, goatList, hasFetched, imageURL } = props
+    const { fetchGoats, addGoat, displayNew, goatList, hasFetched, imageURL, goatQuotes } = props
 
     useEffect(() => {
         !hasFetched && fetchGoats();
         
     }, [hasFetched])
+
+    useEffect(() => {
+        imageURL !== "" && createGoat(imageURL)
+    }, [imageURL])
 
     function getRandom(min, max) {
         const num = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -23,10 +26,26 @@ const Goatify = (props) => {
         const goatPic = goatList[0][getRandom(0, 9)].urls.small;
         console.log(goatPic)
         return addGoat(goatPic);
+    };
+
+    const createGoat = (imageURL) => {
+        const newGoat = {
+            url: imageURL,
+            left: getRandom(0, 90),
+            top: getRandom(0, 90),
+            quote: addQuote()
+        }
+        console.log(newGoat);
+        return displayNew(newGoat);
+    };
+
+    const addQuote = () => {
+       return goatQuotes[getRandom(0, 8)]
     }
    
     return (
-        <div>
+        <div className='goatify'>
+            <h1>Got Goats?</h1>
             <button onClick={loadGoat}>GOATIFY</button>
         </div>
     )
@@ -38,8 +57,16 @@ const mapStateToProps = state => {
         displayedGoats: state.displayedGoats,
         goatList: state.goatList,
         hasFetched: state.hasFetched,
-        imageURL: state.imageURL
+        imageURL: state.imageURL,
+        goatQuotes: state.goatQuotes
     };
 }
 
-export default connect(mapStateToProps, { fetchGoats, addGoat })(Goatify);
+const mapActionsToProps = { 
+        fetchGoats: fetchGoats, 
+        addGoat: addGoat, 
+        displayNew: displayNew, 
+    }
+
+
+export default connect(mapStateToProps, mapActionsToProps)(Goatify);

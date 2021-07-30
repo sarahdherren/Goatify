@@ -1,14 +1,14 @@
 import Goatify from "./components/Goatify";
+import Goats from "./components/Goats";
+
 
 
 function App() {
   return (
-    <div>
-      <header>
-        <h1>Got Goats?</h1>
-      </header>
-      <Goatify />
-    </div>
+      <body>
+        <Goats />
+        <Goatify />
+      </body>
   );
 }
 

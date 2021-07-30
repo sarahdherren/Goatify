@@ -1,11 +1,14 @@
-import { HAS_FETCHED, FETCH_GOATS_SUCCESS, ADD_GOAT } from "../actions";
-//import { DISPLAY_NEW } from "../actions";
+import { FETCH_GOATS_SUCCESS, ADD_GOAT, DISPLAY_NEW } from "../actions";
+import { goatQuotes } from "../goatQuotes";
+
 
 const initialState = {
     hasFetched: false,
     goatList: [],
     displayedGoats: [],
+    newGoat: {},
     imageURL: "",
+    goatQuotes: goatQuotes
 }
 
 const reducer = (state = initialState, action) => {
@@ -23,11 +26,12 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 imageURL: action.payload
             }
-        // case DISPLAY_NEW:
-        //     return {
-        //         ...state,
-        //         displayedGoats: [action.payload, ...state.displayedGoats]
-        //     }
+        case DISPLAY_NEW:
+            return {
+                ...state,
+                newGoat: action.payload,
+                displayedGoats: [action.payload, ...state.displayedGoats]
+            }
         default:
             return state;
     }
