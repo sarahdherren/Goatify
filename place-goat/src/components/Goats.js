@@ -9,22 +9,28 @@ const Goats = (props) => {
 
     return (
         <div className="goat">
-            {displayedGoats.map(goat => (
-                <>
+            <div className="goatQuotes">
+                {displayedGoats.map(goat => (
                     <p>{goat.quote}</p>
-                    <img src={goat.url} 
-                        style={{
-                            borderRadius: '50%',
-                            position: 'absolute',
-                            left: `${goat.left}vw`,
-                            top: `${goat.top}vh`,
-                            maxWidth: '10%',
-                            height: 'auto'
-                        }}
-                        alt='goat' />
-                    
-                </>   
-            ))}
+                ))}
+            </div>
+            <div className="goatImages">
+                {displayedGoats.map(goat => (
+                    <>
+                        <img src={goat.url} 
+                            style={{
+                                borderRadius: '50%',
+                                position: 'absolute',
+                                left: `${goat.left}vw`,
+                                top: `${goat.top}vh`,
+                                maxWidth: '20%',
+                                height: 'auto'
+                            }}
+                            alt='goat' />
+                    </>   
+                ))}
+            </div>
+            
         </div>
     )
 };

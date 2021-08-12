@@ -4,7 +4,6 @@ html{
     
 }
 body {
-    height: 100%;
     overflow: hidden;
     border-radius: 40px;
 }
@@ -19,13 +18,21 @@ div.goat {
     margin: 0 auto;
 }
 
-p {
+div.goatQuotes {
+    position: absolute;
+    right: 20px;
+    max-width: 30%;
     z-index: 10;
     text-align: center;
     margin-top: 20px;
+    padding: 15px;
+    border-radius: 20px;
+    border: 1px teal solid;
+    box-shadow: 5px 5px 10px teal;
     background-color: white;
-    
 }
+
+
 
 div.goatify {
     position: fixed;
