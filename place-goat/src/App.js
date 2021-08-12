@@ -5,10 +5,10 @@ import Goats from "./components/Goats";
 
 function App() {
   return (
-      <body>
+      <>
         <Goats />
         <Goatify />
-      </body>
+      </>
   );
 }
 

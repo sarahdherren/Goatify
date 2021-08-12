@@ -4,12 +4,14 @@ import { addGoat, fetchGoats, displayNew } from '../actions';
 
 const Goatify = (props) => {
 
-    const { fetchGoats, addGoat, displayNew, goatList, hasFetched, imageURL, goatQuotes } = props
-
+    const { fetchGoats, addGoat, displayNew, goatList, hasFetched, 
+        imageURL, goatQuotes } = props
+    
     useEffect(() => {
-        !hasFetched && fetchGoats();
         
-    }, [hasFetched])
+      !hasFetched && fetchGoats();
+        
+    }, [hasFetched, fetchGoats])
 
     useEffect(() => {
         imageURL !== "" && createGoat(imageURL)
@@ -23,16 +25,16 @@ const Goatify = (props) => {
 
     const loadGoat = (e) => {
         e.preventDefault();
-        const goatPic = goatList[0][getRandom(0, 9)].urls.small;
+        const goatPic = goatList[0][getRandom(0, 19)].urls.small;
         console.log(goatPic)
         return addGoat(goatPic);
     };
-
+//move createGoat into a action creator & disable button until hasFetched is true!!
     const createGoat = (imageURL) => {
         const newGoat = {
             url: imageURL,
-            left: getRandom(0, 90),
-            top: getRandom(0, 90),
+            left: getRandom(0, 70),
+            top: getRandom(0, 70),
             quote: addQuote()
         }
         console.log(newGoat);

@@ -30,7 +30,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 newGoat: action.payload,
-                displayedGoats: [action.payload, ...state.displayedGoats]
+                displayedGoats: [...state.displayedGoats, action.payload,]
             }
         default:
             return state;
