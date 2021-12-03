@@ -1,3 +1,6 @@
+![Screen Shot 2021-12-03 at 4 11 41 PM](https://user-images.githubusercontent.com/67919714/144680177-b15529b3-e04a-4a65-86cd-f45da8edc03a.png)
+
+
 # Module Project: Async Redux - React Redux App
 
 This project allows you to practice the concepts and techniques learned in this module and apply them in a concrete project. This module explored asyncronous action creators in Redux. In your project you will demonstrate proficiency of these subjects and principles by building an app from scratch that consumes and API of your choosing, and displays data fetched from that API.
